@@ -1,10 +1,280 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="keywords" content="chatsounds,meta,struct,construct,garrys,mod,gmod,garry,keylimepie,steam"/>
+        <meta name="description" content="Nothing special."/>
+		
+		<title>KeyLimePie</title>
+		
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+	</head>
+	<body onload="init()">	
+		<div class="modal fade" id="contact-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="contact-close" aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">CONTACT</h4>
+					</div>
+					<form onsubmit="sendMsg(event)" class="form-horizontal" role="form" id="contact-form">
+						<div class="modal-body">
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="email">Email</label>
+								<div class="col-sm-10">
+									<input type="email" class="form-control" id="email" placeholder="Enter email" required="required">
+							    </div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="message">Message</label>
+								<div class="col-sm-10">
+									<textarea class="form-control" id="message" placeholder="Enter message" required="required" rows="10"></textarea>
+							    </div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="captcha">Captcha</label>
+								<div class="col-sm-10">
+									<div id="captcha" class="g-recaptcha" data-sitekey="6LeL4gwTAAAAAB5bI4NmLVgrfxeH9K8rSOndRb3B"></div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="form-group">
+								<div class="col-sm-offset-2 col-sm-10">
+							    	<button type="submit" class="btn btn-primary">Submit</button>
+							    </div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container navbar-wrapper no-bg">
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<img alt="KEYLIMEPIE" src="img/klp.png" class="navbar-brand"/>
+						<a class="navbar-brand visible-xs-block" href="#">KEYLIMEPIE</a>
+					</div>
+					<div>
+						<ul class="nav navbar-nav">
+							<li>
+								<a href="https://steamcommunity.com/id/DerKeyLimePie">STEAM</a>
+							</li>
+							<li>
+								<a href="https://github.com/TheKeyLimePie">GITHUB</a>
+							</li>
+							<li>
+								<a href="http://cs.3kv.in">CHATSOUNDS</a>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">OTHER COOL STUFF <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li>
+										<a href="http://www.metastruct.net">Meta Construct</a>
+									</li>
+									<li>
+										<a href="http://tempic.3kv.in">TemPIC</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="#" data-toggle="modal" data-target="#contact-modal"><span class="glyphicon glyphicon-envelope"></span> CONTACT</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>	
+		</div>
+		<div class="headSlide">	
+			<div id="mainCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+				<ol class="carousel-indicators">
+				    <li data-target="#mainCarousel" data-slide-to="0" class="active"></li>
+				    <li data-target="#mainCarousel" data-slide-to="1"></li>
+				    <li data-target="#mainCarousel" data-slide-to="2"></li>
+				    <li data-target="#mainCarousel" data-slide-to="3"></li>
+				    <li data-target="#mainCarousel" data-slide-to="4"></li>
+				    <li data-target="#mainCarousel" data-slide-to="5"></li>
+				    <li data-target="#mainCarousel" data-slide-to="6"></li>
+				    <li data-target="#mainCarousel" data-slide-to="7"></li>
+				    <li data-target="#mainCarousel" data-slide-to="8"></li>
+				    <li data-target="#mainCarousel" data-slide-to="9"></li>
+				    <li data-target="#mainCarousel" data-slide-to="10"></li>
+				    <li data-target="#mainCarousel" data-slide-to="11"></li>
+				    <li data-target="#mainCarousel" data-slide-to="12"></li>
+				    <li data-target="#mainCarousel" data-slide-to="13"></li>
+				    <li data-target="#mainCarousel" data-slide-to="14"></li>
+				    <li data-target="#mainCarousel" data-slide-to="15"></li>
+				    <li data-target="#mainCarousel" data-slide-to="16"></li>
+				    <li data-target="#mainCarousel" data-slide-to="17"></li>
+				    <li data-target="#mainCarousel" data-slide-to="18"></li>
+				</ol>
+				<div class="carousel-inner" role="listbox">
+					<div class="active item">
+						<div class="item-object" style="background-image: url('img/1.jpg');"></div>
+						<div class="carousel-caption">
+							<h3>MSA</h3>
+					    	<p>We're there.</p>
+					    </div>
+					</div>
+					<div class="item">
+						<div class="item-object" style="background-image: url('img/2.jpg');"></div>
+						<div class="carousel-caption">
+							<h3>MSA</h3>
+					    	<p>We're there. 24/7.</p>
+					    </div>
+					</div>
+					<div class="item">
+						<div class="item-object" style="background-image: url('img/3.jpg');"></div>
+						<div class="carousel-caption">
+							<h3>MSA</h3>
+					    	<p>It's safer here.</p>
+					    </div>
+					</div>
+					<div class="item">
+						<div class="item-object" style="background-image: url('img/4.jpg');"></div>
+						<div class="carousel-caption">
+							<h3>Meta Construct</h3>
+					    	<p>Providing entertainment since 1897.</p>
+					    </div>
+					</div>
+					<div class="item">
+						<div class="item-object" style="background-image: url('img/5.jpg');"></div>
+						<div class="carousel-caption">
+							<h3>Meta Construct</h3>
+					    	<p>Freedom of speech.</p>
+					    </div>
+					</div>
+					<div class="item">
+						<div class="item-object" style="background-image: url('img/6.jpg');"></div>
+						<div class="carousel-caption">
+							<h3>Meta Construct</h3>
+					    	<p>Google Glass.</p>
+					    </div>
+					</div>
+					<div class="item">
+						<div class="item-object" style="background-image: url('img/7.jpg');"></div>
+						<div class="carousel-caption">
+							<h3>MSA</h3>
+					    	<p>Offroad vehicles.</p>
+					    </div>
+					</div>
+					<div class="item">
+						<div class="item-object" style="background-image: url('img/8.jpg');"></div>
+						<div class="carousel-caption">
+							<h3>MSA</h3>
+					    	<p>We see everything.</p>
+					    </div>
+					</div>
+					<div class="item">
+						<div class="item-object" style="background-image: url('img/9.jpg');"></div>
+						<div class="carousel-caption">
+							<h3>MSA</h3>
+					    	<p>Have fun!</p>
+					    </div>
+					</div>
+					<div class="item">
+						<div class="item-object" style="background-image: url('img/10.jpg');"></div>
+						<div class="carousel-caption">
+							<h3>MSA</h3>
+					    	<p>It's all about security.</p>
+					    </div>
+					</div>
+					<div class="item">
+						<div class="item-object" style="background-image: url('img/11.jpg');"></div>
+						<div class="carousel-caption">
+							<h3>Team Fortress 2</h3>
+					    	<p>"You'd best keep lyin' down!"</p>
+					    </div>
+					</div>
+					<div class="item">
+						<div class="item-object" style="background-image: url('img/12.jpg');"></div>
+						<div class="carousel-caption">
+							<h3>MSA</h3>
+					    	<p>Integrated infotainment systems.</p>
+					    </div>
+					</div>
+					<div class="item">
+						<div class="item-object" style="background-image: url('img/13.jpg');"></div>
+						<div class="carousel-caption">
+							<h3>Meta Construct</h3>
+					    	<p>Spotted!</p>
+					    </div>
+					</div>
+					<div class="item">
+						<div class="item-object" style="background-image: url('img/14.jpg');"></div>
+						<div class="carousel-caption">
+							<h3>MSA</h3>
+					    	<p>Power.</p>
+					    </div>
+					</div>
+					<div class="item">
+						<div class="item-object" style="background-image: url('img/15.jpg');"></div>
+						<div class="carousel-caption">
+							<h3>Meta Construct</h3>
+					    	<p>Celebrating everything.</p>
+					    </div>
+					</div>
+					<div class="item">
+						<div class="item-object" style="background-image: url('img/16.jpg');"></div>
+						<div class="carousel-caption">
+							<h3>Meta Construct</h3>
+					    	<p>Celebrating everything.</p>
+					    </div>
+					</div>
+					<div class="item">
+						<div class="item-object" style="background-image: url('img/17.jpg');"></div>
+						<div class="carousel-caption">
+							<h3>Meta Construct</h3>
+					    	<p>Integrated society.</p>
+					    </div>
+					</div>
+					<div class="item">
+						<div class="item-object" style="background-image: url('img/18.jpg');"></div>
+						<div class="carousel-caption">
+							<h3>Meta Construct</h3>
+					    	<p>Colour.</p>
+					    </div>
+					</div>
+					<div class="item">
+						<div class="item-object" style="background-image: url('img/19.jpg');"></div>
+						<div class="carousel-caption">
+							<h3>MSA</h3>
+					    	<p>Be aware!</p>
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container container-main">
+			<div class="row">
+				<div class="col-md-2">
+					<img alt="KeyLimePie" src="img/klp.png" class="img-responsive">
+				</div>
+				<div class="col-md-10">
+					<h1>Hello there!</h1>
+					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-10">
+					<h3>Brought to you by MSA</h3>
+					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
 
-</body>
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,</p>
+				</div>
+				<div class="col-md-2">
+					<img alt="MSA logo" src="img/msa.png" class="img-responsive">
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/main.js"></script>
+		<script src='https://www.google.com/recaptcha/api.js'></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	</body>
 </html>

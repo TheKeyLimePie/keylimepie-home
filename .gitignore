@@ -1,1 +1,3 @@
 .project
+config.php
+web/img/[0-9]*.jpg
