@@ -1,6 +1,11 @@
 function init()
 {
 	alignCaptcha();
+	$("#msg-success").hide();
+	$("#msg-internalserver").hide();
+	$("#msg-incomplete").hide();
+	$("#msg-captcha").hide();
+	$("#msg-unexpected").hide();
 }
 
 function alignCaptcha()
@@ -26,26 +31,23 @@ function sendMsg(e)
 				data = parseInt(data);
 				if(data == 0)
 				{
-					//SUCCESS!
-					alert("SUCCESS!");
+					$("#msg-success").show(300);
 					document.getElementById("contact-form").reset();
 					grecaptcha.reset();
 					alignCaptcha();
 				}
 				else
 				{
-					var error;
 					switch(data)
 					{
-						case -1: error = "We were unable to process this message due to an internal server error."; break;
+						case -1: $("#msg-internalserver").show(300); break;
 						
-						case -2: error = "The given information was incomplete."; break;
+						case -2: $("#msg-incomplete").show(300); break;
 						
-						case -3:  error = "You didn't pass the captcha test."; break;
+						case -3: $("#msg-captcha").show(300); break;
 						
-						default: error = "Error! This is totally fucked up.";
+						default: $("#msg-unexpected").show(300);
 					}
-					alert(error);
 				}
 			}
 		);

@@ -13,6 +13,26 @@
 	<body onload="init()">	
 		<div class="modal fade" id="contact-modal">
 			<div class="modal-dialog">
+				<div class="alert alert-success fade in" id="msg-success">
+					<a href="#" class="close" aria-label="close" onclick="$('#msg-success').hide(300)">&times;</a>
+					<strong>Success!</strong> Your message is on its way to my inbox.
+				</div>
+				<div class="alert alert-danger fade in" id="msg-internalserver">
+					<a href="#" class="close" aria-label="close" onclick="$('#msg-internalserver').hide(300)">&times;</a>
+					<strong>Oops!</strong> We were unable to process this message due to an internal server error.
+				</div>
+				<div class="alert alert-danger fade in" id="msg-incomplete">
+					<a href="#" class="close" aria-label="close" onclick="$('#msg-incomplete').hide(300)">&times;</a>
+					<strong>Forgot something?</strong> The given information was incomplete.
+				</div>
+				<div class="alert alert-danger fade in" id="msg-captcha">
+					<a href="#" class="close" aria-label="close" onclick="$('#msg-captcha').hide(300)">&times;</a>
+					<strong>Are you human?</strong> You didn't pass the captcha test.
+				</div>
+				<div class="alert alert-danger fade in" id="msg-unexpected">
+					<a href="#" class="close" aria-label="close" onclick="$('#msg-unexpected').hide(300)">&times;</a>
+					<strong>WTF?!</strong> Something unexpected happened...
+				</div>
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="contact-close" aria-hidden="true">&times;</span></button>
@@ -42,6 +62,7 @@
 						<div class="modal-footer">
 							<div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
+							    	<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
 							    	<button type="submit" class="btn btn-primary">Submit</button>
 							    </div>
 							</div>

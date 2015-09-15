@@ -12,8 +12,6 @@
 				'secret' => GOOGLE_SECRET,
 				'response' => $_POST["g-recaptcha-response"]
 		);
-		
-		//$response = json_decode(http_post_data("https://www.google.com/recaptcha/api/siteverify", $api_params));
 
 		$ch = curl_init();
 		
