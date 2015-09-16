@@ -47,8 +47,30 @@ body
 	margin-top: 0px;
 	margin-bottom: 20px;
 	padding: 20px;
-	box-shadow: 0px 0px 10px 2px #000;
+	background-color: transparent;
+	color: #fff;
 }
+
+.container-main p
+{
+	color: #ccc;
+}
+
+.opinion
+{
+	background-color: #fff;
+	border-radius: 5px;
+	color: #aaa;
+	padding: 15px;
+	font-family: serif;
+	margin-bottom: 15px;
+}
+
+blockquote > p:first-child
+{
+	font-style: italic;
+}
+
 @media (min-width: 768px)
 {
 	.navbar-wrapper
