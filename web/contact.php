@@ -8,9 +8,13 @@
 	
 	if($_POST["target"] == "contact-form" AND ISSET($_POST["email"]) AND ISSET($_POST["msg"]) AND ISSET($_POST["g-recaptcha-response"]))
 	{
+		$captcha_response = htmlspecialchars($_POST["g-recaptcha-response"], ENT_QUOTES, "UTF-8");
+		$email = htmlspecialchars($_POST["email"], ENT_QUOTES, "UTF-8");
+		$msg = htmlspecialchars($_POST["msg"], ENT_QUOTES, "UTF-8");
+		
 		$api_params = array(
 				'secret' => GOOGLE_SECRET,
-				'response' => $_POST["g-recaptcha-response"]
+				'response' => $captcha_response
 		);
 
 		$ch = curl_init();
@@ -29,9 +33,6 @@
 			echo CODE_CAPTCHA_FAILED;
 			exit;
 		}
-		
-		$email = htmlspecialchars($_POST["email"], ENT_QUOTES, "UTF-8");
-		$msg = htmlspecialchars($_POST["msg"], ENT_QUOTES, "UTF-8");
 		
 		$id = time().'-'.(strlen($email) + strlen($msg));
 		
