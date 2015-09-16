@@ -5,9 +5,15 @@
 	define('CODE_TRANSMISSION_FAILED', -1);
 	define('CODE_INCOMPLETE_REQUEST', -2);
 	define('CODE_CAPTCHA_FAILED', -3);
+	define('CODE_INVALID_FORMAT', -4);
 	
 	if(ISSET($_POST["target"]) AND $_POST["target"] == "contact-form" AND ISSET($_POST["email"]) AND ISSET($_POST["msg"]) AND ISSET($_POST["g-recaptcha-response"]))
 	{
+		if(is_array($_POST["g-recaptcha-response"]) OR is_array($_POST["email"]) OR is_array($_POST["msg"]))
+		{
+			echo CODE_INVALID_FORMAT;			
+			exit;
+		}
 		$captcha_response = htmlspecialchars($_POST["g-recaptcha-response"], ENT_QUOTES, "UTF-8");
 		$email = htmlspecialchars($_POST["email"], ENT_QUOTES, "UTF-8");
 		$msg = htmlspecialchars($_POST["msg"], ENT_QUOTES, "UTF-8");
