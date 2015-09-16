@@ -1,4 +1,4 @@
-@CHARSET "UTF-8";
+@charset "UTF-8";
 
 html
 {
@@ -66,9 +66,21 @@ body
 	margin-bottom: 15px;
 }
 
+.opinion-pic
+{
+	display: block;
+	margin: auto;
+	height: 125px;
+}
+
 blockquote > p:first-child
 {
 	font-style: italic;
+}
+
+.lol:before
+{
+	content: '\2014 \00A0';
 }
 
 @media (min-width: 768px)
@@ -109,7 +121,7 @@ blockquote > p:first-child
 	height: 100%;
 }
 
-.item.active
+.item
 {
 	height: 100%;
 	width: 100%;
@@ -137,4 +149,18 @@ blockquote > p:first-child
 .no-bg
 {
 	background: none;
+}
+
+.footer
+{
+	width: 100%;
+	background-color: rgba(0,0,0,0.3);
+	color: #777;
+}
+
+.footer .container
+{
+	padding-top: 15px;
+	padding-bottom: 15px;
+	background-color: transparent;
 }
