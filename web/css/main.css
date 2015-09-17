@@ -106,14 +106,17 @@ blockquote > p:first-child
 		height: 550px;
 	}
 	
-	#contact-modal
-	{
-		margin-top: 300px;
-	}
-	
 	.container-main
 	{
 		margin-top: 20px;
+	}
+}
+
+@media (min-width: 992px)
+{
+	#contact-modal
+	{
+		margin-top: 300px;
 	}
 }
 
