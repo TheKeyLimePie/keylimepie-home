@@ -57,7 +57,7 @@ h1,h2,h3,h4,h5,h6
 	color: #fff;
 }
 
-.welcome
+.page-header
 {
 	margin-bottom: 40px;
 }
@@ -193,5 +193,19 @@ blockquote > p:first-child
 	.text-right-responsive
 	{
 		text-align: right;
+	}
+}
+
+.dropdown-header
+{
+	font-style: italic;
+	color: #99cc00;
+}
+
+@media(max-width: 767px)
+{
+	.dropdown.open .dropdown-menu:hover > .dropdown-header
+	{
+		color: #fff;
 	}
 }
