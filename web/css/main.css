@@ -112,11 +112,11 @@ blockquote > p:first-child
 	}
 }
 
-@media (min-width: 992px)
+@media (min-width: 992px) and (min-height: 992px)
 {
 	#contact-modal
 	{
-		margin-top: 300px;
+		margin-top: 250px;
 	}
 }
 
