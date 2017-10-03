@@ -14,6 +14,7 @@
 			$captcha_response = htmlspecialchars($_POST["g-recaptcha-response"], ENT_QUOTES, "UTF-8");
 			$email = htmlspecialchars($_POST["email"], ENT_QUOTES, "UTF-8");
 			$msg = htmlspecialchars($_POST["msg"], ENT_QUOTES, "UTF-8");
+			$msg = str_replace(array("\r\n", "\r", "\n"), "<br />", $msg);
 			
 			$api_params = array(
 					'secret' => GOOGLE_SECRET,
@@ -37,21 +38,40 @@
 				exit;
 			}
 			
+			date_default_timezone_set('CET');
 			$id = time().'-'.(strlen($email) + strlen($msg));
 			
-			$header = 'From: '.$email."\r\n"."Content-type: text/html; charset=utf-8";
-			$subject = 'Contact form [threekelv.in] #'.$id;
+			// mail parameters for the message to the recipient (me)
+			$header = "From: ".HOSTEMAIL."\r\n";
+			$header .= "Content-type: text/html; charset=utf-8\r\n";
+			$header .= "Reply-to: $email\r\n";
 			
-			date_default_timezone_set('CET');
+			$subject = "Contact form [3k.keylimepie.me] #$id";
 			
-			$message = '<b>Form information:</b><br/>';
-			$message .= 'IP address: '.$_SERVER['REMOTE_ADDR'].'<br />';
-			$message .= 'eMail: '.$email.'<br />';
-			$message .= 'Message ID: '.$id.'<br />';
-			$message.='Sent: '.date("l j F Y H:i:s e").'<br /><br /><br />';
+			$message = "<b>Form information:</b><br />";
+			$message .= "IP address: ".$_SERVER['REMOTE_ADDR']."<br />";
+			$message .= "eMail: $email<br />";
+			$message .= "Message ID: $id<br />";
+			$message .= "Sent: ".date("l j F Y H:i:s e")."<br /><br /><br />";
 			$message .= $msg;
 			
-			if(mail(EMAIL,$subject,$message,$header))
+			// mail parameters for the message to the sender
+			$header_recp = "From: ".HOSTEMAIL."\r\n";
+			$header_recp .= "Content-type: text/html; charset=utf-8\r\n";
+			
+			$subject_recp = "Acknowledgement of receipt [3k.keylimepie.me] #$id";
+			
+			$message_recp = "<b>This is an automated message. Please do not reply.</b><br /><br />";
+			$message_recp .= "Hey there!<br/>";
+			$message_recp .= "I just wanted to let you know that your message made it through. Please give me some time to reply :)<br />";
+			$message_recp .= "This is what I got: <br /><br />";
+			$message_recp .= "IP address: ".$_SERVER['REMOTE_ADDR']."<br />";
+			$message_recp .= "eMail: $email<br />";
+			$message_recp .= "Message ID: $id<br />";
+			$message_recp .= "Sent: ".date("l j F Y H:i:s e")."<br /><br /><br />";
+			$message_recp .= $msg;
+			
+			if(mail(EMAIL, $subject, $message, $header) and mail($email, $subject_recp, $message_recp, $header_recp))
 				echo CODE_SUCCESS;
 			else
 				echo CODE_TRANSMISSION_FAILED;
