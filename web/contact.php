@@ -71,8 +71,11 @@
 			$message_recp .= "Sent: ".date("l j F Y H:i:s e")."<br /><br /><br />";
 			$message_recp .= $msg;
 			
-			if(mail(EMAIL, $subject, $message, $header) and mail($email, $subject_recp, $message_recp, $header_recp))
+			if(mail(EMAIL, $subject, $message, $header))
+			{
+				mail($email, $subject_recp, $message_recp, $header_recp);
 				echo CODE_SUCCESS;
+			}
 			else
 				echo CODE_TRANSMISSION_FAILED;
 		}
